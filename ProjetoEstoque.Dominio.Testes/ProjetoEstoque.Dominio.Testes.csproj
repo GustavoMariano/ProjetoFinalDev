@@ -49,6 +49,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemTestes.cs" />
     <Compile Include="UsuarioTestes.cs" />
   </ItemGroup>
   <ItemGroup>
