@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ItemTestes.cs" />
+    <Compile Include="SolicitacaoTestes.cs" />
     <Compile Include="UsuarioTestes.cs" />
   </ItemGroup>
   <ItemGroup>

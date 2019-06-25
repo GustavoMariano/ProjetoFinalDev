@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEstoque.Dominio
 {
-    class Solicitacao
+    public class Solicitacao
     {
         public int Id { get; set; }
 
@@ -24,6 +24,18 @@ namespace ProjetoEstoque.Dominio
         {
             Usuario = new Usuario();
             Items = new List<Item>();
+        }
+
+        public void ValidaSolicitacao()
+        {
+            if (DataCriacao != DateTime.Now)
+            {
+                throw new Exception("A data de criação não deve ser diferente de agora!");
+            }
+            else if (DataFinalizacao <= DateTime.Now)
+            {
+                throw new Exception("A data de finalização da solicitação não deve ser antes de agora!");
+            }
         }
     }
 }
