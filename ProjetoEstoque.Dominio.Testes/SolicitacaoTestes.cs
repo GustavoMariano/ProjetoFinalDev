@@ -39,21 +39,6 @@ namespace ProjetoEstoque.Dominio.Testes
         }
 
         [Test]
-        public void Status_Da_Solicitacao_Nao_Deve_Ser_Um_Dos_Predefinidos()
-        {
-            //ARRANGE
-            //_solicitacao.Status = 1;
-
-            //ACTION
-            Action resultado = () => _solicitacao.ValidaSolicitacao();
-
-            //ASSERT
-            resultado.Should()
-                .Throw<Exception>()
-                .WithMessage("O status da solicitação deve ser um dos valores predefinidos!");
-        }
-
-        [Test]
         public void Data_De_Finalizacao_Da_Solicitacao_Nao_Deve_Ser_Ontem()
         {
             //ARRANGE

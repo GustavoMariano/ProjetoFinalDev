@@ -35,7 +35,6 @@ namespace ProjetoEstoque.Dominio.Testes
             resultado.Should()
                 .Throw<Exception>()
                 .WithMessage("O nome não deve ser vazio!");
-
         }
 
         [Test]

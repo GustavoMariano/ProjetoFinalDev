@@ -23,7 +23,7 @@ namespace ProjetoEstoque.Dominio
             {
                 throw new Exception("A descrição deve ter mais de cinco caracteres!");
             }
-            else if (Quantidade > 0)
+            else if (Quantidade == 0 || Quantidade < 0)
             {
                 throw new Exception("A quantidade deve ser maior que zero!");
             }

@@ -56,7 +56,7 @@ namespace ProjetoEstoque.Dominio.Testes
         public void Quantidade_Do_Item_Deve_Ser_Maior_Que_Zero()
         {
             //ARRANGE
-            _item.Quantidade = '0';
+            _item.Quantidade = 0;
 
             //ACTION
             Action resultado = () => _item.ValidaItem();
