@@ -100,5 +100,21 @@ namespace ProjetoEstoque.Dominio.Testes
                 .WithMessage("O usuario deve ter nivel de permissão!");
 
         }
+
+        [Test]
+        public void Usuario_Deve_Ter_Setor()
+        {
+            //ARRANGE
+            _usuario.Setor = string.Empty;
+
+            //ACTION
+            Action resultado = () => _usuario.ValidaUsuario();
+
+            //ASSERT
+            resultado.Should()
+                .Throw<Exception>()
+                .WithMessage("O setor não deve estar vazio!");
+
+        }
     }
 }

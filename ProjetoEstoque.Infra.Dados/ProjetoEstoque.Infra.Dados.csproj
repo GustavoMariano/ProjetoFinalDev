@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comum\Db.cs" />
     <Compile Include="SolicitacaoDao.cs" />
     <Compile Include="UsuarioDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +57,8 @@
       <Name>ProjetoEstoque.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="System\Configuration\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
