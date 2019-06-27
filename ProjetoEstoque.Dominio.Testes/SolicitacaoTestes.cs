@@ -39,10 +39,10 @@ namespace ProjetoEstoque.Dominio.Testes
         }
 
         [Test]
-        public void Data_De_Finalizacao_Da_Solicitacao_Nao_Deve_Ser_Ontem()
+        public void Data_De_Finalizacao_Não_Pode_Ser_Diferente_De_Hoje()
         {
             //ARRANGE
-            _solicitacao.DataFinalizacao = DateTime.Now.AddDays(-1);
+            _solicitacao.DataFinalizacao = DateTime.Now.AddDays(1);
 
             //ACTION
             Action resultado = () => _solicitacao.ValidaSolicitacao();
@@ -50,7 +50,7 @@ namespace ProjetoEstoque.Dominio.Testes
             //ASSERT
             resultado.Should()
                 .Throw<Exception>()
-                .WithMessage("A data de finalização da solicitação não deve ser antes de agora!");
+                .WithMessage("A data de finalização da solicitação não deve ser diferente de agora!");
         }
     }
 }

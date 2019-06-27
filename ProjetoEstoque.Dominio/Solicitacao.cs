@@ -32,9 +32,9 @@ namespace ProjetoEstoque.Dominio
             {
                 throw new Exception("A data de criação não deve ser diferente de agora!");
             }
-            else if (DataFinalizacao <= DateTime.Now)
+            else if (DataFinalizacao != DateTime.Now)
             {
-                throw new Exception("A data de finalização da solicitação não deve ser antes de agora!");
+                throw new Exception("A data de finalização da solicitação não deve ser diferente de agora!");
             }
         }
     }

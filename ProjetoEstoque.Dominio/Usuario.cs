@@ -12,13 +12,13 @@ namespace ProjetoEstoque.Dominio
 
         public string Nome { get; set; }
 
-        public string Setor { get; set; }
-
         public string Login { get; set; }
 
         public string Senha { get; set; }
 
         public string Nivel { get; set; }
+
+        public string Setor { get; set; }
 
         public void ValidaUsuario()
         {
@@ -38,14 +38,15 @@ namespace ProjetoEstoque.Dominio
             {
                 throw new Exception("A senha deve conter mais de 6 caracteres!");
             }
+            else if (String.IsNullOrEmpty(Setor))
+            {
+                throw new Exception("O usuario deve ter setor!");
+            }
             else if (String.IsNullOrEmpty(Nivel))
             {
                 throw new Exception("O usuario deve ter nivel de permissão!");
             }
-            else if (String.IsNullOrEmpty(Setor))
-            {
-                throw new Exception("O setor não deve estar vazio!");
-            }
+            
         }
 
     }

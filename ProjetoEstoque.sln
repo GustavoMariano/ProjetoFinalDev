@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Banco de Dados", "Banco de 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEstoque.Infra.Dados", "ProjetoEstoque.Infra.Dados\ProjetoEstoque.Infra.Dados.csproj", "{12E721BB-D64E-42D7-9067-A1171EDEF825}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEstoque.Infra.Testes", "ProjetoEstoque.Infra.Tester\ProjetoEstoque.Infra.Testes.csproj", "{EBD57A2F-31A8-4688-8AAC-216454638026}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{12E721BB-D64E-42D7-9067-A1171EDEF825}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12E721BB-D64E-42D7-9067-A1171EDEF825}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12E721BB-D64E-42D7-9067-A1171EDEF825}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD57A2F-31A8-4688-8AAC-216454638026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD57A2F-31A8-4688-8AAC-216454638026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD57A2F-31A8-4688-8AAC-216454638026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD57A2F-31A8-4688-8AAC-216454638026}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{8EDF4429-251A-416D-BB68-93F227191BCF} = {20D10342-1237-4492-A603-718FF5088552}
 		{8FD5BCE7-6BAA-4C54-81CA-02C3CA73001D} = {095D5751-B8BA-4ACD-B48C-D2BE53E873D8}
 		{12E721BB-D64E-42D7-9067-A1171EDEF825} = {8FD5BCE7-6BAA-4C54-81CA-02C3CA73001D}
+		{EBD57A2F-31A8-4688-8AAC-216454638026} = {20D10342-1237-4492-A603-718FF5088552}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F11010E-90BA-4461-9F24-A1D17D36F6D9}

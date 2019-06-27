@@ -19,7 +19,9 @@ namespace ProjetoEstoque.Dominio.Testes
             _usuario = new Usuario();
             _usuario.Nome = "Gustavo";
             _usuario.Login = "gustavo";
+            _usuario.Setor = "Infra";
             _usuario.Senha = "abc123";
+            _usuario.Nivel = "Admin";
         }
 
         [Test]
@@ -86,6 +88,22 @@ namespace ProjetoEstoque.Dominio.Testes
         }
 
         [Test]
+        public void Usuario_Deve_Ter_Setor()
+        {
+            //ARRANGE
+            _usuario.Setor = string.Empty;
+
+            //ACTION
+            Action resultado = () => _usuario.ValidaUsuario();
+
+            //ASSERT
+            resultado.Should()
+                .Throw<Exception>()
+                .WithMessage("O usuario deve ter setor!");
+
+        }
+
+        [Test]
         public void Usuario_Deve_Ter_Nivel()
         {
             //ARRANGE
@@ -101,20 +119,6 @@ namespace ProjetoEstoque.Dominio.Testes
 
         }
 
-        [Test]
-        public void Usuario_Deve_Ter_Setor()
-        {
-            //ARRANGE
-            _usuario.Setor = string.Empty;
-
-            //ACTION
-            Action resultado = () => _usuario.ValidaUsuario();
-
-            //ASSERT
-            resultado.Should()
-                .Throw<Exception>()
-                .WithMessage("O setor não deve estar vazio!");
-
-        }
+        
     }
 }
