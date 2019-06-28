@@ -49,7 +49,7 @@ namespace ProjetoEstoque.Infra.Tester
             novoUsuario.Senha = "abc123";
             novoUsuario.Nivel = "Admin";
 
-            int idUsuarioAdicionado = 3;
+            int idUsuarioAdicionado = 1;
             int quantidadeValida = 0;
 
             //AÇÃO
