@@ -15,26 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEstoque.Dominio", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEstoque.Apresentacao", "ProjetoEstoque.Apresentacao\ProjetoEstoque.Apresentacao.csproj", "{B589D88F-9B63-4FB9-AF48-F698A24045CD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Admin", "Admin", "{F965FC68-F7F3-4E2B-91A8-954366D81753}"
-	ProjectSection(SolutionItems) = preProject
-		ProjetoEstoque.Apresentacao\TelaAdmin.cs = ProjetoEstoque.Apresentacao\TelaAdmin.cs
-		ProjetoEstoque.Apresentacao\TelaAdmin.Designer.cs = ProjetoEstoque.Apresentacao\TelaAdmin.Designer.cs
-		ProjetoEstoque.Apresentacao\TelaAdmin.resx = ProjetoEstoque.Apresentacao\TelaAdmin.resx
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comum", "Comum", "{8F173039-DA58-41C8-8338-01581ED1D9FA}"
-	ProjectSection(SolutionItems) = preProject
-		ProjetoEstoque.Apresentacao\TelaMinhaSolicitacao.cs = ProjetoEstoque.Apresentacao\TelaMinhaSolicitacao.cs
-		ProjetoEstoque.Apresentacao\TelaMinhaSolicitacao.Designer.cs = ProjetoEstoque.Apresentacao\TelaMinhaSolicitacao.Designer.cs
-		ProjetoEstoque.Apresentacao\TelaMinhaSolicitacao.resx = ProjetoEstoque.Apresentacao\TelaMinhaSolicitacao.resx
-		ProjetoEstoque.Apresentacao\TelaNovaSolicitacao.cs = ProjetoEstoque.Apresentacao\TelaNovaSolicitacao.cs
-		ProjetoEstoque.Apresentacao\TelaNovaSolicitacao.Designer.cs = ProjetoEstoque.Apresentacao\TelaNovaSolicitacao.Designer.cs
-		ProjetoEstoque.Apresentacao\TelaNovaSolicitacao.resx = ProjetoEstoque.Apresentacao\TelaNovaSolicitacao.resx
-		ProjetoEstoque.Apresentacao\TelaUsuario.cs = ProjetoEstoque.Apresentacao\TelaUsuario.cs
-		ProjetoEstoque.Apresentacao\TelaUsuario.Designer.cs = ProjetoEstoque.Apresentacao\TelaUsuario.Designer.cs
-		ProjetoEstoque.Apresentacao\TelaUsuario.resx = ProjetoEstoque.Apresentacao\TelaUsuario.resx
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{20D10342-1237-4492-A603-718FF5088552}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEstoque.Dominio.Testes", "ProjetoEstoque.Dominio.Testes\ProjetoEstoque.Dominio.Testes.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
@@ -44,10 +24,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEstoque.Infra.Dados", "ProjetoEstoque.Infra.Dados\ProjetoEstoque.Infra.Dados.csproj", "{12E721BB-D64E-42D7-9067-A1171EDEF825}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoEstoque.Infra.Testes", "ProjetoEstoque.Infra.Tester\ProjetoEstoque.Infra.Testes.csproj", "{EBD57A2F-31A8-4688-8AAC-216454638026}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Banco", "Banco", "{E3DA70FD-007C-4774-8A90-FF611E9B7DFF}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "db_devsis_estoque", "db_devsis_estoque\db_devsis_estoque.sqlproj", "{13032FAB-6776-4D46-8EF4-4CA2FE33F856}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,12 +51,6 @@ Global
 		{EBD57A2F-31A8-4688-8AAC-216454638026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBD57A2F-31A8-4688-8AAC-216454638026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBD57A2F-31A8-4688-8AAC-216454638026}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13032FAB-6776-4D46-8EF4-4CA2FE33F856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13032FAB-6776-4D46-8EF4-4CA2FE33F856}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13032FAB-6776-4D46-8EF4-4CA2FE33F856}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{13032FAB-6776-4D46-8EF4-4CA2FE33F856}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13032FAB-6776-4D46-8EF4-4CA2FE33F856}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13032FAB-6776-4D46-8EF4-4CA2FE33F856}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,14 +58,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5DCA46A7-917D-4ABD-8396-FC76F3A8D644} = {C2626E8C-7B79-49EF-88A6-214225A818C3}
 		{B589D88F-9B63-4FB9-AF48-F698A24045CD} = {6EE849F4-30A6-42C8-A381-80BCD4B06935}
-		{F965FC68-F7F3-4E2B-91A8-954366D81753} = {6EE849F4-30A6-42C8-A381-80BCD4B06935}
-		{8F173039-DA58-41C8-8338-01581ED1D9FA} = {6EE849F4-30A6-42C8-A381-80BCD4B06935}
 		{8EDF4429-251A-416D-BB68-93F227191BCF} = {20D10342-1237-4492-A603-718FF5088552}
 		{8FD5BCE7-6BAA-4C54-81CA-02C3CA73001D} = {095D5751-B8BA-4ACD-B48C-D2BE53E873D8}
 		{12E721BB-D64E-42D7-9067-A1171EDEF825} = {8FD5BCE7-6BAA-4C54-81CA-02C3CA73001D}
 		{EBD57A2F-31A8-4688-8AAC-216454638026} = {20D10342-1237-4492-A603-718FF5088552}
-		{E3DA70FD-007C-4774-8A90-FF611E9B7DFF} = {20D10342-1237-4492-A603-718FF5088552}
-		{13032FAB-6776-4D46-8EF4-4CA2FE33F856} = {E3DA70FD-007C-4774-8A90-FF611E9B7DFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F11010E-90BA-4461-9F24-A1D17D36F6D9}
