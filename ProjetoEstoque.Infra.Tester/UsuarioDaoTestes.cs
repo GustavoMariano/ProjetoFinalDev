@@ -20,7 +20,7 @@ namespace ProjetoEstoque.Infra.Tester
             _usuarioDao = new UsuarioDao();
 
             //Limpando do a tabela usuario
-            Db.Update("DELETE FROM [tb_usuario]");
+            Db.Update("DELETE FROM tb_usuario");
             //Zerando o Id
             Db.Update("DBCC CHECKIDENT('[tb_usuario]', RESEED, 0)");
 
@@ -49,7 +49,7 @@ namespace ProjetoEstoque.Infra.Tester
             novoUsuario.Senha = "abc123";
             novoUsuario.Nivel = "Admin";
 
-            int idUsuarioAdicionado = 1;
+            int idUsuarioAdicionado = 3;
             int quantidadeValida = 0;
 
             //AÇÃO
