@@ -42,7 +42,7 @@ namespace ProjetoEstoque.Dominio
             {
                 throw new Exception("O usuario deve ter setor!");
             }
-            else if (Nivel ==0)
+            else if (Nivel == 0)
             {
                 throw new Exception("O usuario deve ter nivel de permissão!");
             }

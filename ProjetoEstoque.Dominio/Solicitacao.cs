@@ -16,15 +16,11 @@ namespace ProjetoEstoque.Dominio
 
         public DateTime DataFinalizacao { get; set; }
 
-        public Usuario Usuario { get; set; }
+        public String Usuario { get; set; }
 
-        public List<Item> Items { get; set; }
+        public int Prioridade { get; set; }
 
-        public Solicitacao()
-        {
-            Usuario = new Usuario();
-            Items = new List<Item>();
-        }
+        public String Item { get; set; }
 
         public void ValidaSolicitacao()
         {

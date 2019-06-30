@@ -60,5 +60,6 @@ namespace ProjetoEstoque.Infra.Testes
             Assert.True(resultado > quantidadeValida);
             Assert.AreEqual(idUsuarioAdicionado, resultado);
         }
+
     }
 }
