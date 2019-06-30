@@ -23,6 +23,7 @@ namespace ProjetoEstoque.Infra.Dados
                 ,[nivel])
             VALUES
                 ({0}nome
+                ,{0}setor
                 ,{0}login
                 ,{0}senha
                 ,{0}nivel)";

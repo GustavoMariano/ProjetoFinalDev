@@ -7,7 +7,7 @@ using ProjetoEstoque.Dominio;
 using ProjetoEstoque.Infra.Dados;
 using ProjetoEstoque.Infra.Dados.Comum;
 
-namespace ProjetoEstoque.Infra.Tester
+namespace ProjetoEstoque.Infra.Testes
 {
     [TestFixture]
     public class UsuarioDaoTestes
@@ -20,7 +20,7 @@ namespace ProjetoEstoque.Infra.Tester
             _usuarioDao = new UsuarioDao();
 
             //Limpando do a tabela usuario
-            Db.Update("DELETE FROM [tb_usuario]");
+            Db.Update("DELETE FROM tb_usuario");
             //Zerando o Id
             Db.Update("DBCC CHECKIDENT('[tb_usuario]', RESEED, 0)");
 
@@ -32,7 +32,7 @@ namespace ProjetoEstoque.Infra.Tester
             novoUsuario.Setor = "Infra";
             novoUsuario.Senha = "abc123";
             novoUsuario.Nivel = "Admin";
-            
+
             //Adicionando o cliente no banco
             _usuarioDao.Adicionar(novoUsuario);
         }
@@ -49,7 +49,7 @@ namespace ProjetoEstoque.Infra.Tester
             novoUsuario.Senha = "abc123";
             novoUsuario.Nivel = "Admin";
 
-            int idUsuarioAdicionado = 3;
+            int idUsuarioAdicionado = 2;
             int quantidadeValida = 0;
 
             //AÇÃO
