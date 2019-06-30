@@ -13,10 +13,9 @@ using ProjetoEstoque.Infra.Dados;
 namespace ProjetoEstoque.Apresentacao
 {
 
-    private UsuarioDao _usuarioDao;
-
     public partial class TelaNovoUsuario : Form
     {
+        private UsuarioDao _usuarioDao;
         public TelaNovoUsuario()
         {
             InitializeComponent();
@@ -31,12 +30,15 @@ namespace ProjetoEstoque.Apresentacao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Usuario adcUsuario = new Usuario();
-            adcUsuario.Nome = textBox1.Text;
-            adcUsuario.Login = textBox2.Text;
-            adcUsuario.Setor = textBox4.Text;
-            adcUsuario.Senha = textBox3.Text;
-            adcUsuario.Nivel = comboBox1.SelectedText;
+            Usuario novoUsuario = new Usuario();
+            novoUsuario.Nome = textBox1.Text;
+            novoUsuario.Login = textBox2.Text;
+            novoUsuario.Setor = textBox4.Text;
+            novoUsuario.Senha = textBox3.Text;
+            novoUsuario.Nivel = comboBox1.SelectedText;
+
+            _usuarioDao = new UsuarioDao();
+            _usuarioDao.Adicionar(novoUsuario);
 
             TelaAdmin frm = new TelaAdmin();
             frm.Show();
