@@ -21,7 +21,7 @@ namespace ProjetoEstoque.Dominio.Testes
             _usuario.Login = "gustavo";
             _usuario.Setor = "Infra";
             _usuario.Senha = "abc123";
-            _usuario.Nivel = "Admin";
+            _usuario.Nivel = 1;
         }
 
         [Test]
@@ -107,7 +107,7 @@ namespace ProjetoEstoque.Dominio.Testes
         public void Usuario_Deve_Ter_Nivel()
         {
             //ARRANGE
-            _usuario.Nivel = string.Empty;
+            _usuario.Nivel = 0;
 
             //ACTION
             Action resultado = () => _usuario.ValidaUsuario();

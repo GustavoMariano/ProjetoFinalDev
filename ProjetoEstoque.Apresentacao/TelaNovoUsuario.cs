@@ -16,6 +16,8 @@ namespace ProjetoEstoque.Apresentacao
     public partial class TelaNovoUsuario : Form
     {
         private UsuarioDao _usuarioDao;
+
+
         public TelaNovoUsuario()
         {
             InitializeComponent();
@@ -30,12 +32,14 @@ namespace ProjetoEstoque.Apresentacao
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+
             Usuario novoUsuario = new Usuario();
             novoUsuario.Nome = textBox1.Text;
             novoUsuario.Login = textBox2.Text;
             novoUsuario.Setor = textBox4.Text;
             novoUsuario.Senha = textBox3.Text;
-            novoUsuario.Nivel = comboBox1.SelectedText;
+            novoUsuario.Nivel = comboBox1.SelectedIndex;
 
             _usuarioDao = new UsuarioDao();
             _usuarioDao.Adicionar(novoUsuario);

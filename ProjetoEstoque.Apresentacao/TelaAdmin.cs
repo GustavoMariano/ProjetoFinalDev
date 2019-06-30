@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjetoEstoque.Dominio;
+using ProjetoEstoque.Infra.Dados;
 
 namespace ProjetoEstoque.Apresentacao
 {
@@ -15,6 +17,7 @@ namespace ProjetoEstoque.Apresentacao
         public TelaAdmin()
         {
             InitializeComponent();
+            
 
         }
 

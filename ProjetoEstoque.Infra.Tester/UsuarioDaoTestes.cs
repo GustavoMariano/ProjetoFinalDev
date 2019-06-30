@@ -31,7 +31,7 @@ namespace ProjetoEstoque.Infra.Testes
             novoUsuario.Login = "gustavo";
             novoUsuario.Setor = "Infra";
             novoUsuario.Senha = "abc123";
-            novoUsuario.Nivel = "Admin";
+            novoUsuario.Nivel = 1;
 
             //Adicionando o cliente no banco
             _usuarioDao.Adicionar(novoUsuario);
@@ -47,7 +47,7 @@ namespace ProjetoEstoque.Infra.Testes
             novoUsuario.Login = "gustavo";
             novoUsuario.Setor = "Infra";
             novoUsuario.Senha = "abc123";
-            novoUsuario.Nivel = "Admin";
+            novoUsuario.Nivel = 1 ;
 
             int idUsuarioAdicionado = 2;
             int quantidadeValida = 0;

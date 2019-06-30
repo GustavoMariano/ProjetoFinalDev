@@ -81,7 +81,7 @@ namespace ProjetoEstoque.Infra.Dados
             usuario.Setor = Convert.ToString(reader["Setor"]);
             usuario.Login = Convert.ToString(reader["Login"]);
             usuario.Senha = Convert.ToString(reader["Senha"]);
-            usuario.Nivel = Convert.ToString(reader["Nivel"]);
+            usuario.Nivel = Convert.ToInt32(reader["Nivel"]);
 
             return usuario;
         }
