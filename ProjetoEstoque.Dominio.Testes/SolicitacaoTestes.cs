@@ -16,9 +16,9 @@ namespace ProjetoEstoque.Dominio.Testes
         public void Inicializador()
         {
             _solicitacao = new Solicitacao();
-            _solicitacao.DataCriacao = DateTime.Now;
-            _solicitacao.Status = 0;
-            _solicitacao.DataFinalizacao = DateTime.Now;
+            _solicitacao.DataCriacao = DateTime.Today;
+            _solicitacao.Status = "Aprovado";
+            _solicitacao.DataFinalizacao = DateTime.Today;
             //_solicitacao.Usuario = "";
             //_solicitacao.Items = "";
         }
@@ -27,7 +27,7 @@ namespace ProjetoEstoque.Dominio.Testes
         public void Data_De_Criacao_Da_Solicitacao_Nao_Deve_Ser_Amanha()
         {
             //ARRANGE
-            _solicitacao.DataCriacao = DateTime.Now.AddDays(1);
+            _solicitacao.DataCriacao = DateTime.Today.AddDays(1);
 
             //ACTION
             Action resultado = () => _solicitacao.ValidaSolicitacao();
@@ -42,7 +42,7 @@ namespace ProjetoEstoque.Dominio.Testes
         public void Data_De_Finalizacao_Não_Pode_Ser_Diferente_De_Hoje()
         {
             //ARRANGE
-            _solicitacao.DataFinalizacao = DateTime.Now.AddDays(1);
+            _solicitacao.DataFinalizacao = DateTime.Today.AddDays(1);
 
             //ACTION
             Action resultado = () => _solicitacao.ValidaSolicitacao();
@@ -50,7 +50,7 @@ namespace ProjetoEstoque.Dominio.Testes
             //ASSERT
             resultado.Should()
                 .Throw<Exception>()
-                .WithMessage("A data de finalização da solicitação não deve ser diferente de agora!");
+                .WithMessage("A data de finalização da solicitação deve ser hoje!");
         }
     }
 }

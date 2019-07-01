@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjetoEstoque.Dominio;
+using ProjetoEstoque.Infra.Dados;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace ProjetoEstoque.Apresentacao
 {
     public partial class TelaLogin : Form
     {
+        private UsuarioDao _usuarioDao;
+
         public TelaLogin()
         {
             InitializeComponent();
@@ -19,13 +23,23 @@ namespace ProjetoEstoque.Apresentacao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if((textBox1.Text == "root") && (textBox2.Text == "abc123"))
+            Usuario novoUsuario = new Usuario();
+            novoUsuario.Login = textBox1.Text;
+            novoUsuario.Senha = textBox2.Text;
+
+            _usuarioDao = new UsuarioDao();
+            _usuarioDao.BuscarNivel(novoUsuario);
+
+            var resultado = (_usuarioDao.BuscarNivel(novoUsuario));
+
+            if (resultado == 0)
             {
                 TelaAdmin frm = new TelaAdmin();
                 frm.Show();
                 this.Visible = false;
             }
-            else if ((textBox1.Text == "comum") && (textBox2.Text == "abc123")) {
+            else if (resultado == 1)
+            { 
                 TelaUsuario frm = new TelaUsuario();
                 frm.Show();
                 this.Visible = false;

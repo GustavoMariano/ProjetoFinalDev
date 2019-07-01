@@ -14,6 +14,11 @@ namespace ProjetoEstoque.Infra.Dados
     public class UsuarioDao
     {
         #region Scripts
+        public const string _sqlBuscarNivel =
+            @"SELECT nivel FROM tb_usuario 
+                WHERE [login] = {0}login and 
+                [senha] = {0}senha";
+
         public const string _sqlAdicionar =
             @"INSERT INTO tb_usuario
                 ([nome]
@@ -23,6 +28,7 @@ namespace ProjetoEstoque.Infra.Dados
                 ,[nivel])
             VALUES
                 ({0}nome
+                ,{0}setor
                 ,{0}login
                 ,{0}senha
                 ,{0}nivel)";
@@ -53,6 +59,11 @@ namespace ProjetoEstoque.Infra.Dados
             return Db.Insert(_sqlAdicionar, BuscarParametros(novoUsuario));
         }
 
+        public int BuscarNivel(Usuario novoUsuario)
+        {
+            return Db.Insert(_sqlBuscarNivel, BuscarParametros(novoUsuario));
+        }
+
         public IList<Usuario> BuscarTodos()
         {
             return Db.GetAll(_sqlBuscaTodos, ConverterUsuario);
@@ -80,7 +91,7 @@ namespace ProjetoEstoque.Infra.Dados
             usuario.Setor = Convert.ToString(reader["Setor"]);
             usuario.Login = Convert.ToString(reader["Login"]);
             usuario.Senha = Convert.ToString(reader["Senha"]);
-            usuario.Nivel = Convert.ToString(reader["Nivel"]);
+            usuario.Nivel = Convert.ToInt32(reader["Nivel"]);
 
             return usuario;
         }

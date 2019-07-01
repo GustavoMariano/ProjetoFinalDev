@@ -41,6 +41,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SolicitacaoDaoTestes.cs" />
     <Compile Include="UsuarioDaoTestes.cs" />
   </ItemGroup>
   <ItemGroup>

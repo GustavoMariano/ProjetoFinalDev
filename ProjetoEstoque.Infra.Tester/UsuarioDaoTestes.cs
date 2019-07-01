@@ -7,7 +7,7 @@ using ProjetoEstoque.Dominio;
 using ProjetoEstoque.Infra.Dados;
 using ProjetoEstoque.Infra.Dados.Comum;
 
-namespace ProjetoEstoque.Infra.Tester
+namespace ProjetoEstoque.Infra.Testes
 {
     [TestFixture]
     public class UsuarioDaoTestes
@@ -20,7 +20,7 @@ namespace ProjetoEstoque.Infra.Tester
             _usuarioDao = new UsuarioDao();
 
             //Limpando do a tabela usuario
-            Db.Update("DELETE FROM [tb_usuario]");
+            Db.Update("DELETE FROM tb_usuario");
             //Zerando o Id
             Db.Update("DBCC CHECKIDENT('[tb_usuario]', RESEED, 0)");
 
@@ -31,8 +31,8 @@ namespace ProjetoEstoque.Infra.Tester
             novoUsuario.Login = "gustavo";
             novoUsuario.Setor = "Infra";
             novoUsuario.Senha = "abc123";
-            novoUsuario.Nivel = "Admin";
-            
+            novoUsuario.Nivel = 1;
+
             //Adicionando o cliente no banco
             _usuarioDao.Adicionar(novoUsuario);
         }
@@ -47,9 +47,9 @@ namespace ProjetoEstoque.Infra.Tester
             novoUsuario.Login = "gustavo";
             novoUsuario.Setor = "Infra";
             novoUsuario.Senha = "abc123";
-            novoUsuario.Nivel = "Admin";
+            novoUsuario.Nivel = 1 ;
 
-            int idUsuarioAdicionado = 3;
+            int idUsuarioAdicionado = 2;
             int quantidadeValida = 0;
 
             //AÇÃO
@@ -59,6 +59,35 @@ namespace ProjetoEstoque.Infra.Tester
             //VERIFICAÇÃO        
             Assert.True(resultado > quantidadeValida);
             Assert.AreEqual(idUsuarioAdicionado, resultado);
+        }
+
+        [Test]
+        public void Teste_Deve_Buscar_O_Nivel_Pelo_Login_E_Senha()
+        {
+            //CENÁRIO
+
+            Usuario novoUsuario = new Usuario();
+            novoUsuario.Nome = "Gustavo";
+            novoUsuario.Login = "gustavo";
+            novoUsuario.Setor = "Infraaa";
+            novoUsuario.Senha = "abc123";
+            novoUsuario.Nivel = 0;
+
+            int niveDoUsuarioAdicionado = 0;
+            int nivelValida = 0;
+
+            //Limpando do a tabela usuario
+            Db.Update("DELETE FROM tb_usuario");
+
+            
+
+            //AÇÃO
+            _usuarioDao.Adicionar(novoUsuario);
+            var resultado = _usuarioDao.BuscarNivel(novoUsuario);
+
+            //VERIFICAÇÃO        
+            Assert.True(resultado == nivelValida);
+            Assert.AreEqual(niveDoUsuarioAdicionado, resultado);
         }
     }
 }

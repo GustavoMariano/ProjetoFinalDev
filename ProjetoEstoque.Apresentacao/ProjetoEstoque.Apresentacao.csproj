@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ProjetoEstoque.Apresentacao</RootNamespace>
     <AssemblyName>ProjetoEstoque.Apresentacao</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -131,6 +131,7 @@
     <EmbeddedResource Include="TelaUsuario.resx">
       <DependentUpon>TelaUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -140,9 +141,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">
@@ -155,6 +153,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoEstoque.Dominio\ProjetoEstoque.Dominio.csproj">
+      <Project>{5dca46a7-917d-4abd-8396-fc76f3a8d644}</Project>
+      <Name>ProjetoEstoque.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoEstoque.Infra.Dados\ProjetoEstoque.Infra.Dados.csproj">
+      <Project>{12e721bb-d64e-42d7-9067-a1171edef825}</Project>
+      <Name>ProjetoEstoque.Infra.Dados</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

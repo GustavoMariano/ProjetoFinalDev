@@ -16,7 +16,7 @@ namespace ProjetoEstoque.Dominio
 
         public string Senha { get; set; }
 
-        public string Nivel { get; set; }
+        public int Nivel { get; set; }
 
         public string Setor { get; set; }
 
@@ -42,7 +42,7 @@ namespace ProjetoEstoque.Dominio
             {
                 throw new Exception("O usuario deve ter setor!");
             }
-            else if (String.IsNullOrEmpty(Nivel))
+            else if (Nivel == 0)
             {
                 throw new Exception("O usuario deve ter nivel de permissão!");
             }
