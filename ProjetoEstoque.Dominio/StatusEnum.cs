@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoEstoque.Dominio
 {
-    public enum StatusEnum
+    public enum Statusdas
     {
         Pendente,
         Aprovado,

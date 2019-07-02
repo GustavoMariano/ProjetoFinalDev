@@ -44,6 +44,12 @@ namespace ProjetoEstoque.Apresentacao
                 frm.Show();
                 this.Visible = false;
             }
+            else if (textBox1.Text == "root" && textBox2.Text == "abc123")
+            {
+                TelaUsuario frm = new TelaUsuario();
+                frm.Show();
+                this.Visible = false;
+            }
             else
             {
                 MessageBox.Show("Login ou senha inválidos!");

@@ -12,25 +12,26 @@ namespace ProjetoEstoque.Dominio
 
         public DateTime DataCriacao { get; set; }
 
-        public StatusEnum Status { get; set; }
+        public String Status { get; set; }
 
         public DateTime DataFinalizacao { get; set; }
 
         public String Usuario { get; set; }
 
-        public int Prioridade { get; set; }
+        public String Itens { get; set; }
 
-        public String Item { get; set; }
+        public String Prioridade { get; set; }
+
 
         public void ValidaSolicitacao()
         {
-            if (DataCriacao != DateTime.Now)
+            if (DataFinalizacao != DateTime.Today)
+            {
+                throw new Exception("A data de finalização da solicitação deve ser hoje!");
+            }
+            else if (DataCriacao != DateTime.Today)
             {
                 throw new Exception("A data de criação não deve ser diferente de agora!");
-            }
-            else if (DataFinalizacao != DateTime.Now)
-            {
-                throw new Exception("A data de finalização da solicitação não deve ser diferente de agora!");
             }
         }
     }

@@ -73,6 +73,7 @@ namespace ProjetoEstoque.Infra.Dados.Comum
             }
         }
 
+
         public static void Update(string sql, Dictionary<string, object> parms = null)
         {
             sql = string.Format(sql, PrefixoParametro);

@@ -1,5 +1,6 @@
 ﻿// NUnit 3 tests
 // See documentation : https://github.com/nunit/docs/wiki/NUnit-Documentation
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
@@ -23,44 +24,113 @@ namespace ProjetoEstoque.Infra.Testes
 
             //Limpando do a tabela solicitacao
             Db.Update("DELETE FROM tb_solicitacao");
-            //Zerando o Id
             Db.Update("DBCC CHECKIDENT('[tb_solicitacao]', RESEED, 0)");
 
             //Criando solicitacao inicial
             Solicitacao novaSolicitacao = new Solicitacao();
-            novaSolicitacao = new Solicitacao();
-            novaSolicitacao.DataCriacao = System.DateTime.Now;
-            novaSolicitacao.Status = StatusEnum.Pendente;
-            novaSolicitacao.DataFinalizacao = System.DateTime.Now;
+            //novaSolicitacao = new Solicitacao();
+            novaSolicitacao.DataCriacao = System.DateTime.Today;
+            novaSolicitacao.Status = "Pendente";
+            novaSolicitacao.DataFinalizacao = System.DateTime.Today;
             novaSolicitacao.Usuario = null;
-            novaSolicitacao.Prioridade = 1;
-            novaSolicitacao.Item = "ITEM";
+            novaSolicitacao.Prioridade = "1";
+            novaSolicitacao.Itens = "aa";
+            
 
             //Adicionando a solicitacao no banco
             _solicitacaoDao.Solicitar(novaSolicitacao);
         }
 
         [Test]
+
         public void Teste_Deve_Adicionar_Solicitacao()
         {
+            Db.Update("DELETE FROM tb_solicitacao");
+            Db.Update("DBCC CHECKIDENT('[tb_solicitacao]', RESEED, 0)");
+
             //ARRANGE
             int idSolicitacaoAdicionado = 2;
-            int idEsperado = 1;
+            int idEsperado = 2;
 
+            //Criando solicitacao inicial
             Solicitacao novaSolicitacao = new Solicitacao();
-            novaSolicitacao.DataCriacao = System.DateTime.Now;
-            novaSolicitacao.Status = StatusEnum.Aprovado;
-            novaSolicitacao.DataFinalizacao = System.DateTime.Now;
-            novaSolicitacao.Usuario = "comum";
-            novaSolicitacao.Prioridade = 1;
-            novaSolicitacao.Item = "Item aleatorio";
+            novaSolicitacao.DataCriacao = System.DateTime.Today;
+            novaSolicitacao.Status = "Pendente";
+            novaSolicitacao.DataFinalizacao = System.DateTime.Today;
+            novaSolicitacao.Usuario = null;
+            novaSolicitacao.Prioridade = "1";
+            novaSolicitacao.Itens = "aa";
+
+            //Adicionando a solicitacao no banco
+            _solicitacaoDao.Solicitar(novaSolicitacao);
+
 
             //ACTION
             var resultado = _solicitacaoDao.Solicitar(novaSolicitacao);
 
             //ASSERT
-            Assert.True(resultado > idEsperado);
+            Assert.True(resultado == idEsperado);
             Assert.AreEqual(idSolicitacaoAdicionado, resultado);
+        }
+
+
+        [Test]
+        public void Teste_Deve_Alterar_Status_Da_Solicitacao()
+        {
+
+            Db.Update("DELETE FROM tb_solicitacao");
+            Db.Update("DBCC CHECKIDENT('[tb_solicitacao]', RESEED, 0)");
+
+            //CENÁRIO
+            Solicitacao novaSolicitacao = new Solicitacao();
+            novaSolicitacao.DataCriacao = System.DateTime.Today;
+            novaSolicitacao.Status = "Pendente";
+            novaSolicitacao.DataFinalizacao = System.DateTime.Today;
+            novaSolicitacao.Usuario = null;
+            novaSolicitacao.Prioridade = "1";
+            novaSolicitacao.Itens = "TESTE";
+
+            _solicitacaoDao.Solicitar(novaSolicitacao);
+
+
+            int idSolicitacaoEditado = 1; //ID DA SOLICITACAO QUE ESTA SENDO ALTERADO
+            string statusEditado = "REPROVADO"; //ALTERAÇÃO DO STATUS
+            Solicitacao solicitacaoEditado = _solicitacaoDao.BuscarPorId(idSolicitacaoEditado); //BUSCA DA SOLICITACAO A SER ALTERADO
+
+            //AÇÃO
+            solicitacaoEditado.Status = statusEditado;
+            _solicitacaoDao.AlterarStatus(solicitacaoEditado);
+
+            Solicitacao solicitacaoBuscado = _solicitacaoDao.BuscarPorId(idSolicitacaoEditado);
+            Assert.AreEqual(statusEditado, solicitacaoBuscado.Status);
+        }
+
+            [Test]
+        public void Teste_Deve_Buscar_Todas_As_Solicitacoes()
+        {
+
+            Db.Update("DELETE FROM tb_solicitacao");
+            Db.Update("DBCC CHECKIDENT('[tb_solicitacao]', RESEED, 0)");
+
+            //CENÁRIO
+            Solicitacao novaSolicitacao = new Solicitacao();
+            novaSolicitacao.DataCriacao = System.DateTime.Today;
+            novaSolicitacao.Status = "Pendente";
+            novaSolicitacao.DataFinalizacao = System.DateTime.Today;
+            novaSolicitacao.Usuario = null;
+            novaSolicitacao.Prioridade = "1";
+            novaSolicitacao.Itens = "TESTE";
+
+            _solicitacaoDao.Solicitar(novaSolicitacao);
+            _solicitacaoDao.Solicitar(novaSolicitacao);
+
+
+            int validaQtd = 2; //ID DA SOLICITACAO QUE ESTA SENDO ALTERADO
+            var resultado = _solicitacaoDao.BuscarTodos(); //BUSCA DA SOLICITACAO A SER ALTERADO
+
+            //AÇÃO
+            
+
         }
     }
 }
