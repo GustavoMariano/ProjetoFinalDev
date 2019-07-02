@@ -32,10 +32,14 @@ namespace ProjetoEstoque.Infra.Testes
             novaSolicitacao.DataCriacao = System.DateTime.Today;
             novaSolicitacao.Status = "Pendente";
             novaSolicitacao.DataFinalizacao = System.DateTime.Today;
-            novaSolicitacao.Usuario = null;
+            novaSolicitacao.Usuario = "USER";
             novaSolicitacao.Prioridade = "1";
-            novaSolicitacao.Itens = "aa";
-            
+            novaSolicitacao.Item1 = "aa";
+            novaSolicitacao.Item2 = "aa";
+            novaSolicitacao.Item3 = "aa";
+            novaSolicitacao.Qtd1 = 3;
+            novaSolicitacao.Qtd2 = 1;
+            novaSolicitacao.Qtd3 = 6;
 
             //Adicionando a solicitacao no banco
             _solicitacaoDao.Solicitar(novaSolicitacao);
@@ -59,7 +63,12 @@ namespace ProjetoEstoque.Infra.Testes
             novaSolicitacao.DataFinalizacao = System.DateTime.Today;
             novaSolicitacao.Usuario = null;
             novaSolicitacao.Prioridade = "1";
-            novaSolicitacao.Itens = "aa";
+            novaSolicitacao.Item1 = "aa";
+            novaSolicitacao.Item2 = "aa";
+            novaSolicitacao.Item3 = "aa";
+            novaSolicitacao.Qtd1 = 3;
+            novaSolicitacao.Qtd2 = 1;
+            novaSolicitacao.Qtd3 = 6;
 
             //Adicionando a solicitacao no banco
             _solicitacaoDao.Solicitar(novaSolicitacao);
@@ -88,7 +97,12 @@ namespace ProjetoEstoque.Infra.Testes
             novaSolicitacao.DataFinalizacao = System.DateTime.Today;
             novaSolicitacao.Usuario = null;
             novaSolicitacao.Prioridade = "1";
-            novaSolicitacao.Itens = "TESTE";
+            novaSolicitacao.Item1 = "aa";
+            novaSolicitacao.Item2 = "aa";
+            novaSolicitacao.Item3 = "aa";
+            novaSolicitacao.Qtd1 = 3;
+            novaSolicitacao.Qtd2 = 1;
+            novaSolicitacao.Qtd3 = 6;
 
             _solicitacaoDao.Solicitar(novaSolicitacao);
 
@@ -105,7 +119,7 @@ namespace ProjetoEstoque.Infra.Testes
             Assert.AreEqual(statusEditado, solicitacaoBuscado.Status);
         }
 
-            [Test]
+        [Test]
         public void Teste_Deve_Buscar_Todas_As_Solicitacoes()
         {
 
@@ -117,19 +131,25 @@ namespace ProjetoEstoque.Infra.Testes
             novaSolicitacao.DataCriacao = System.DateTime.Today;
             novaSolicitacao.Status = "Pendente";
             novaSolicitacao.DataFinalizacao = System.DateTime.Today;
-            novaSolicitacao.Usuario = null;
+            novaSolicitacao.Usuario = "Testi";
             novaSolicitacao.Prioridade = "1";
-            novaSolicitacao.Itens = "TESTE";
+            novaSolicitacao.Item1 = "aa";
+            novaSolicitacao.Item2 = "aa";
+            novaSolicitacao.Item3 = "aa";
+            novaSolicitacao.Qtd1 = 3;
+            novaSolicitacao.Qtd2 = 1;
+            novaSolicitacao.Qtd3 = 6;
 
             _solicitacaoDao.Solicitar(novaSolicitacao);
             _solicitacaoDao.Solicitar(novaSolicitacao);
 
 
-            int validaQtd = 2; //ID DA SOLICITACAO QUE ESTA SENDO ALTERADO
-            var resultado = _solicitacaoDao.BuscarTodos(); //BUSCA DA SOLICITACAO A SER ALTERADO
+            int quantidadeSolicitacoes = 2;
 
-            //AÇÃO
-            
+            var resultado = _solicitacaoDao.BuscarTodos();
+
+            Assert.AreEqual(quantidadeSolicitacoes, resultado.Count);
+
 
         }
     }

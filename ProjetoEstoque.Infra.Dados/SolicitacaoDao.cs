@@ -21,14 +21,24 @@ namespace ProjetoEstoque.Infra.Dados
                 ,[data_finalizacao]
                 ,[usuario]
                 ,[prioridade]
-                ,[itens])
+                ,[item1]
+                ,[item2]
+                ,[item3]
+                ,[qtd1]
+                ,[qtd2]
+                ,[qtd3])
             VALUES
                 ({0}datacriacao
                 ,{0}status
                 ,{0}dataFim
                 ,{0}usuario
                 ,{0}prioridade
-                ,{0}itens)";
+                ,{0}item1
+                ,{0}item2
+                ,{0}item3
+                ,{0}qtd1
+                ,{0}qtd2
+                ,{0}qtd3";
 
         private const string _sqlBuscaTodos =
             @"SELECT *
@@ -77,7 +87,12 @@ namespace ProjetoEstoque.Infra.Dados
                 {"dataFim",solicitacao.DataFinalizacao},
                 {"usuario",solicitacao.Usuario},
                 {"prioridade",solicitacao.Prioridade},
-                {"itens",solicitacao.Itens},
+                {"item1",solicitacao.Item1},
+                {"item2",solicitacao.Item2},
+                {"item3",solicitacao.Item3},
+                {"qtd1",solicitacao.Qtd1},
+                {"qtd2",solicitacao.Qtd2},
+                {"qtd3",solicitacao.Qtd3},
             };
         }
 

@@ -18,7 +18,17 @@ namespace ProjetoEstoque.Dominio
 
         public String Usuario { get; set; }
 
-        public String Itens { get; set; }
+        public String Item1 { get; set; }
+
+        public String Item2 { get; set; }
+
+        public String Item3 { get; set; }
+
+        public int Qtd1 { get; set; }
+
+        public int Qtd2 { get; set; }
+
+        public int Qtd3 { get; set; }
 
         public String Prioridade { get; set; }
 

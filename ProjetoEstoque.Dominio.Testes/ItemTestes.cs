@@ -19,7 +19,6 @@ namespace ProjetoEstoque.Dominio.Testes
             _item = new Item();
             _item.Nome = "Notebook";
             _item.Descricao = "Samsung Essentials E20 Intel Dual Core - 4GB 500GB";
-            _item.Quantidade = 1;
         }
 
         [Test]
@@ -52,19 +51,5 @@ namespace ProjetoEstoque.Dominio.Testes
                 .WithMessage("A descrição deve ter mais de cinco caracteres!");
         }
 
-        [Test]
-        public void Quantidade_Do_Item_Deve_Ser_Maior_Que_Zero()
-        {
-            //ARRANGE
-            _item.Quantidade = 0;
-
-            //ACTION
-            Action resultado = () => _item.ValidaItem();
-
-            //ASSERT
-            resultado.Should()
-                .Throw<Exception>()
-                .WithMessage("A quantidade deve ser maior que zero!");
-        }
     }
 }

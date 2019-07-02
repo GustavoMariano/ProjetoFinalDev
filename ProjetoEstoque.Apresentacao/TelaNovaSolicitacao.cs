@@ -40,10 +40,7 @@ namespace ProjetoEstoque.Apresentacao
             novaSolicitacao.DataFinalizacao = DateTime.Today.AddMonths(1);
             novaSolicitacao.Usuario = ".";
             novaSolicitacao.Prioridade = comboBox2.Text;
-            novaSolicitacao.Itens =  textBox1.Text + textBox2.Text + textBox3.Text + numericUpDown1.TabIndex + "; " + 
-                                     textBox4.Text + textBox5.Text + textBox6.Text + numericUpDown2.TabIndex + "; " +
-                                     textBox7.Text + textBox8.Text + textBox9.Text + numericUpDown3.TabIndex + "; ";
-
+            
             _solicitacaoDao = new SolicitacaoDao();
             _solicitacaoDao.Solicitar(novaSolicitacao);
 
