@@ -32,32 +32,11 @@ namespace ProjetoEstoque.Infra.Dados
         private const string _sqlBuscaTodosSolicitacao =
             @"SELECT 
             FROM [dbo].[tb_solicitacao]";
-
-        private const string _sqlEditar =
-            @"UPDATE [dbo].[tb_usuario]
-               SET [Status] = {0}Status
-             WHERE [Id] = {0}Id";
-
-        private const string _sqlBuscaPorId =
-            @"SELECT * FROM [dbo].[tb_solicitacao]
-              WHERE [Id] = {0}Id";
         #endregion
 
         public int Solicitar(Solicitacao novaSolicitacao)
         {
             return Db.Insert(_sqlAdicionarSolicitacao, BuscarParametros(novaSolicitacao));
-        }
-
-        public Solicitacao BuscarPorId(int id)
-        {
-            var parms = new Dictionary<string, object> { { "Id", id } };
-
-            return Db.Get(_sqlBuscaPorId, ConverterSolicitacao, parms);
-        }
-
-        public void AlterarStatus(Solicitacao solicitacao)
-        {
-            Db.Update(_sqlEditar, BuscarParametros(solicitacao));
         }
 
         private Dictionary<string, object> BuscarParametros(Solicitacao solicitacao)
@@ -70,22 +49,9 @@ namespace ProjetoEstoque.Infra.Dados
                 {"dataFim",solicitacao.DataFinalizacao},
                 {"usuario",solicitacao.Usuario},
                 {"prioridade",solicitacao.Prioridade},
-                {"itens",solicitacao.Items},
+                {"itens",solicitacao.Item},
             };
         }
-
-        #region métodos privados
-        private Solicitacao ConverterSolicitacao(IDataReader reader)
-        {
-            Solicitacao solicitacao = new Solicitacao();
-            solicitacao.Id = Convert.ToInt32(reader["Id"]);
-            solicitacao.Status = Convert.ToString(reader["Status"]);
-
-
-            return solicitacao;
-        }
-
-        #endregion
     }
-
+        
 }
