@@ -20,7 +20,6 @@ namespace ProjetoEstoque.Infra.Testes
         public void Inicializador()
         {
             _solicitacaoDao = new SolicitacaoDao();
-            _usuarioDao = new UsuarioDao();
 
             //Limpando do a tabela solicitacao
             Db.Update("DELETE FROM tb_solicitacao");
@@ -28,11 +27,11 @@ namespace ProjetoEstoque.Infra.Testes
 
             //Criando solicitacao inicial
             Solicitacao novaSolicitacao = new Solicitacao();
-            //novaSolicitacao = new Solicitacao();
-            novaSolicitacao.DataCriacao = System.DateTime.Today;
+            novaSolicitacao = new Solicitacao();
+            novaSolicitacao.DataCriacao = DateTime.Today;
             novaSolicitacao.Status = "Pendente";
-            novaSolicitacao.DataFinalizacao = System.DateTime.Today;
-            novaSolicitacao.Usuario = "USER";
+            novaSolicitacao.DataFinalizacao = DateTime.Today;
+            novaSolicitacao.Usuario = "SETUP";
             novaSolicitacao.Prioridade = "1";
             novaSolicitacao.Item1 = "aa";
             novaSolicitacao.Item2 = "aa";
@@ -49,19 +48,12 @@ namespace ProjetoEstoque.Infra.Testes
 
         public void Teste_Deve_Adicionar_Solicitacao()
         {
-            Db.Update("DELETE FROM tb_solicitacao");
-            Db.Update("DBCC CHECKIDENT('[tb_solicitacao]', RESEED, 0)");
-
-            //ARRANGE
-            int idSolicitacaoAdicionado = 2;
-            int idEsperado = 2;
-
-            //Criando solicitacao inicial
             Solicitacao novaSolicitacao = new Solicitacao();
-            novaSolicitacao.DataCriacao = System.DateTime.Today;
+            novaSolicitacao = new Solicitacao();
+            novaSolicitacao.DataCriacao = DateTime.Today;
             novaSolicitacao.Status = "Pendente";
-            novaSolicitacao.DataFinalizacao = System.DateTime.Today;
-            novaSolicitacao.Usuario = null;
+            novaSolicitacao.DataFinalizacao = DateTime.Today;
+            novaSolicitacao.Usuario = "TESTE ADD";
             novaSolicitacao.Prioridade = "1";
             novaSolicitacao.Item1 = "aa";
             novaSolicitacao.Item2 = "aa";
@@ -70,15 +62,14 @@ namespace ProjetoEstoque.Infra.Testes
             novaSolicitacao.Qtd2 = 1;
             novaSolicitacao.Qtd3 = 6;
 
-            //Adicionando a solicitacao no banco
-            _solicitacaoDao.Solicitar(novaSolicitacao);
-
+            int idSolicitacaoAdicionado = 2;
+            int idEsperado = 0;
 
             //ACTION
             var resultado = _solicitacaoDao.Solicitar(novaSolicitacao);
 
             //ASSERT
-            Assert.True(resultado == idEsperado);
+            Assert.True(resultado > idEsperado);
             Assert.AreEqual(idSolicitacaoAdicionado, resultado);
         }
 
@@ -86,34 +77,13 @@ namespace ProjetoEstoque.Infra.Testes
         [Test]
         public void Teste_Deve_Alterar_Status_Da_Solicitacao()
         {
-
-            Db.Update("DELETE FROM tb_solicitacao");
-            Db.Update("DBCC CHECKIDENT('[tb_solicitacao]', RESEED, 0)");
-
-            //CENÁRIO
-            Solicitacao novaSolicitacao = new Solicitacao();
-            novaSolicitacao.DataCriacao = System.DateTime.Today;
-            novaSolicitacao.Status = "Pendente";
-            novaSolicitacao.DataFinalizacao = System.DateTime.Today;
-            novaSolicitacao.Usuario = null;
-            novaSolicitacao.Prioridade = "1";
-            novaSolicitacao.Item1 = "aa";
-            novaSolicitacao.Item2 = "aa";
-            novaSolicitacao.Item3 = "aa";
-            novaSolicitacao.Qtd1 = 3;
-            novaSolicitacao.Qtd2 = 1;
-            novaSolicitacao.Qtd3 = 6;
-
-            _solicitacaoDao.Solicitar(novaSolicitacao);
-
-
             int idSolicitacaoEditado = 1; //ID DA SOLICITACAO QUE ESTA SENDO ALTERADO
-            string statusEditado = "REPROVADO"; //ALTERAÇÃO DO STATUS
+            string statusEditado = "SOCORRO"; //ALTERAÇÃO DO STATUS
             Solicitacao solicitacaoEditado = _solicitacaoDao.BuscarPorId(idSolicitacaoEditado); //BUSCA DA SOLICITACAO A SER ALTERADO
 
             //AÇÃO
             solicitacaoEditado.Status = statusEditado;
-            _solicitacaoDao.AlterarStatus(solicitacaoEditado);
+            _solicitacaoDao.Editar(solicitacaoEditado);
 
             Solicitacao solicitacaoBuscado = _solicitacaoDao.BuscarPorId(idSolicitacaoEditado);
             Assert.AreEqual(statusEditado, solicitacaoBuscado.Status);
@@ -123,33 +93,13 @@ namespace ProjetoEstoque.Infra.Testes
         public void Teste_Deve_Buscar_Todas_As_Solicitacoes()
         {
 
-            Db.Update("DELETE FROM tb_solicitacao");
-            Db.Update("DBCC CHECKIDENT('[tb_solicitacao]', RESEED, 0)");
-
             //CENÁRIO
-            Solicitacao novaSolicitacao = new Solicitacao();
-            novaSolicitacao.DataCriacao = System.DateTime.Today;
-            novaSolicitacao.Status = "Pendente";
-            novaSolicitacao.DataFinalizacao = System.DateTime.Today;
-            novaSolicitacao.Usuario = "Testi";
-            novaSolicitacao.Prioridade = "1";
-            novaSolicitacao.Item1 = "aa";
-            novaSolicitacao.Item2 = "aa";
-            novaSolicitacao.Item3 = "aa";
-            novaSolicitacao.Qtd1 = 3;
-            novaSolicitacao.Qtd2 = 1;
-            novaSolicitacao.Qtd3 = 6;
 
-            _solicitacaoDao.Solicitar(novaSolicitacao);
-            _solicitacaoDao.Solicitar(novaSolicitacao);
-
-
-            int quantidadeSolicitacoes = 2;
+            int quantidadeSolicitacoes = 1;
 
             var resultado = _solicitacaoDao.BuscarTodos();
 
             Assert.AreEqual(quantidadeSolicitacoes, resultado.Count);
-
 
         }
     }

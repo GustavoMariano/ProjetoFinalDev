@@ -72,7 +72,7 @@ namespace ProjetoEstoque.Infra.Dados
         }
 
 
-        public void AlterarStatus(Solicitacao solicitacao)
+        public void Editar(Solicitacao solicitacao)
         {
             Db.Update(_sqlEditar, BuscarParametros(solicitacao));
         }

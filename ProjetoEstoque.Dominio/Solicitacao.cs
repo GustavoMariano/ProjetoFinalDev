@@ -43,6 +43,11 @@ namespace ProjetoEstoque.Dominio
             {
                 throw new Exception("A data de criação não deve ser diferente de agora!");
             }
+            else if (String.IsNullOrEmpty(Status))
+            {
+                throw new Exception("O status da solicitação não deve estar vazia!");
+            }
+            
         }
     }
 }

@@ -17,10 +17,30 @@ namespace ProjetoEstoque.Dominio.Testes
         {
             _solicitacao = new Solicitacao();
             _solicitacao.DataCriacao = DateTime.Today;
-            _solicitacao.Status = "Aprovado";
+            _solicitacao.Status = "Pendente";
             _solicitacao.DataFinalizacao = DateTime.Today;
-            //_solicitacao.Usuario = "";
-            //_solicitacao.Items = "";
+            _solicitacao.Item1 = "ITEM 1";
+            _solicitacao.Item2 = "ITME 2";
+            _solicitacao.Item3 = "Item 3";
+            _solicitacao.Qtd1 = 1;
+            _solicitacao.Qtd2 = 2;
+            _solicitacao.Qtd3 = 3;
+            _solicitacao.Usuario = "Gustavo";
+        }
+
+        [Test]
+        public void Status_Nao_Deve_Ser_Vazio()
+        {
+            //ARRANGE
+            _solicitacao.Status = "";
+
+            //ACTION
+            Action resultado = () => _solicitacao.ValidaSolicitacao();
+
+            //ASSERT
+            resultado.Should()
+                .Throw<Exception>()
+                .WithMessage("O status da solicitação não deve estar vazia!");
         }
 
         [Test]

@@ -45,6 +45,22 @@ namespace ProjetoEstoque.Infra.Testes
             Assert.True(resultado > quantidadeValida);
             Assert.AreEqual(QuantidadeItemAdicionado, resultado);
         }
+
+        //[Test]
+        //public void Teste_Deve_Deletar_Um_Item()
+        //{
+        //    Item novoItem = new Item();
+        //    novoItem.Nome = "Item2";
+        //    novoItem.Descricao = "Desc2";
+
+        //    int QuantidadeItemAMostrar = 1;
+        //    int quantidadeValida = 0;
+
+        //    var resultado = _itemDao.Deletar(novoItem);
+
+        //    Assert.True(resultado > quantidadeValida);
+        //    Assert.AreEqual(QuantidadeItemAMostrar, resultado);
+        //}
     }
 }
 
