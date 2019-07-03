@@ -38,7 +38,7 @@ namespace ProjetoEstoque.Infra.Dados
                 ,{0}item3
                 ,{0}qtd1
                 ,{0}qtd2
-                ,{0}qtd3";
+                ,{0}qtd3)";
 
         private const string _sqlBuscaTodos =
             @"SELECT *

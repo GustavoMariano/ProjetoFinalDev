@@ -13,55 +13,55 @@ namespace ProjetoEstoque.Infra.Dados
     {
         #region Scripts
         public const string _sqlAdicionarItem =
-            @"INSERT INTO tb_item
+            @"INSERT INTO [dbo].[tb_item]
                 ([nome]
                 ,[descricao])
             VALUES
-                ({0}nome
-                ,{0}descricao";
+                ({0}Nome
+                ,{0}Descricao)";
 
-        private const string _sqlBuscaTodos =
+        private const string _sqlBuscaTodosItem =
             @"SELECT [id]
-                ,[nome]
-                ,[descricao]
+                ,[Nome]
+                ,[Descricao]
                 FROM [dbo].[tb_item]";
 
-        private const string _sqlEditar =
+        private const string _sqlEditarItem =
             @"UPDATE [dbo].[tb_item]
-             SET [nome] = {0}nome
-                ,[descricao] = {0}descricao
+             SET [nome] = {0}Nome
+                ,[descricao] = {0}Descricao
              WHERE [id] = {0}id";
 
         private const string _sqlDeletar =
-            @"DELETE FROM [dbo].[tb_item] WHERE [id] = {0}id";
+            @"DELETE FROM [dbo].[tb_item] WHERE [id] = {0}Id";
 
         #endregion
 
         public int Adicionar(Item novoItem)
         {
-            return Db.Insert(_sqlAdicionarItem, BuscarParametros(novoItem));
+            return Db.Insert(_sqlAdicionarItem, BuscarParametrosItem(novoItem));
         }
 
         public IList<Item> BuscarTodos()
         {
-            return Db.GetAll(_sqlBuscaTodos, ConverterItem);
+            return Db.GetAll(_sqlBuscaTodosItem, ConverterItem);
         }
 
         public void Editar(Item item)
         {
-            Db.Update(_sqlEditar, BuscarParametros(item));
+            Db.Update(_sqlEditarItem, BuscarParametrosItem(item));
         }
 
         public void Deletar(int id)
         {
-            var parms = new Dictionary<string, object> { { "id", id } };
+            var parms = new Dictionary<string, object> { { "Id", id } };
 
             Db.Delete(_sqlDeletar, parms);
         }
 
 
         #region Metodos privados
-        private Dictionary<string, object> BuscarParametros(Item item)
+        private Dictionary<string, object> BuscarParametrosItem(Item item)
         {
             return new Dictionary<string, object>
             {

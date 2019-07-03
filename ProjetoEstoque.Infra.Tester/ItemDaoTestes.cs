@@ -23,6 +23,7 @@ namespace ProjetoEstoque.Infra.Testes
             Db.Update("DBCC CHECKIDENT('[tb_item]', RESEED, 0)");
 
             Item novoItem = new Item();
+            novoItem = new Item();
             novoItem.Nome = "Item 1";
             novoItem.Descricao = "Desc 1";
 
@@ -32,10 +33,9 @@ namespace ProjetoEstoque.Infra.Testes
         [Test]
         public void Teste_Deve_Adicionar_Um_Item()
         {
-
             Item novoItem = new Item();
-            novoItem.Nome = "Item 2";
-            novoItem.Descricao = "Desc 2";
+            novoItem.Nome = "Item2";
+            novoItem.Descricao = "Desc2";
 
             int QuantidadeItemAdicionado = 2;
             int quantidadeValida = 0;
@@ -44,7 +44,7 @@ namespace ProjetoEstoque.Infra.Testes
 
             Assert.True(resultado > quantidadeValida);
             Assert.AreEqual(QuantidadeItemAdicionado, resultado);
-
         }
     }
 }
+

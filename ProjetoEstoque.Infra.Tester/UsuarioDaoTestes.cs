@@ -19,12 +19,9 @@ namespace ProjetoEstoque.Infra.Testes
         {
             _usuarioDao = new UsuarioDao();
 
-            //Limpando do a tabela usuario
             Db.Update("DELETE FROM tb_usuario");
-            //Zerando o Id
             Db.Update("DBCC CHECKIDENT('[tb_usuario]', RESEED, 0)");
 
-            //Criando cliente inicial
             Usuario novoUsuario = new Usuario();
             novoUsuario = new Usuario();
             novoUsuario.Nome = "Gustavo";
@@ -33,15 +30,12 @@ namespace ProjetoEstoque.Infra.Testes
             novoUsuario.Senha = "abc123";
             novoUsuario.Nivel = 1;
 
-            //Adicionando o cliente no banco
             _usuarioDao.Adicionar(novoUsuario);
         }
 
         [Test]
         public void Teste_Deve_Adicionar_Um_Usuario_Que_Retorne_Um_Id_Valido()
         {
-            //CENÁRIO
-
             Usuario novoUsuario = new Usuario();
             novoUsuario.Nome = "Gustavo";
             novoUsuario.Login = "gustavo";
@@ -52,11 +46,8 @@ namespace ProjetoEstoque.Infra.Testes
             int idUsuarioAdicionado = 2;
             int quantidadeValida = 0;
 
-            //AÇÃO
-
             var resultado = _usuarioDao.Adicionar(novoUsuario);
 
-            //VERIFICAÇÃO        
             Assert.True(resultado > quantidadeValida);
             Assert.AreEqual(idUsuarioAdicionado, resultado);
         }
