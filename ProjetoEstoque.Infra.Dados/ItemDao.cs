@@ -35,7 +35,21 @@ namespace ProjetoEstoque.Infra.Dados
         private const string _sqlDeletar =
             @"DELETE FROM [dbo].[tb_item] WHERE [id] = {0}Id";
 
+        private const string _sqlBuscaPorId =
+            @"SELECT [Id]
+                  ,[Nome]
+                  ,[Descricao]
+              FROM [dbo].[tb_item]
+              WHERE [Id] = {0}Id";
+
         #endregion
+
+        public Item BuscarPorId(int id)
+        {
+            var parms = new Dictionary<string, object> { { "Id", id } };
+
+            return Db.Get(_sqlBuscaPorId, ConverterItem, parms);
+        }
 
         public int Adicionar(Item novoItem)
         {

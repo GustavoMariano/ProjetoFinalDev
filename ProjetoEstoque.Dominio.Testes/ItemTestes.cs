@@ -17,8 +17,8 @@ namespace ProjetoEstoque.Dominio.Testes
         public void Inicializador()
         {
             _item = new Item();
-            _item.Nome = "Notebook";
-            _item.Descricao = "Samsung Essentials E20 Intel Dual Core - 4GB 500GB";
+            _item.Nome = "Item";
+            _item.Descricao = "Desc";
         }
 
         [Test]
@@ -37,6 +37,21 @@ namespace ProjetoEstoque.Dominio.Testes
         }
 
         [Test]
+        public void Nome_Do_Item_Nao_Ter_Menos_Que_3_Caracteres()
+        {
+            //ARRANGE
+            _item.Nome = "ab";
+
+            //ACTION
+            Action resultado = () => _item.ValidaItem();
+
+            //ASSERT
+            resultado.Should()
+                .Throw<Exception>()
+                .WithMessage("O nome do item não pode ter menos de 3 caracteres!");
+        }
+
+        [Test]
         public void Descricao_Do_Item_Deve_Ter_Mais_De_Cinco_Caracteres()
         {
             //ARRANGE
@@ -50,6 +65,5 @@ namespace ProjetoEstoque.Dominio.Testes
                 .Throw<Exception>()
                 .WithMessage("A descrição deve ter mais de cinco caracteres!");
         }
-
     }
 }

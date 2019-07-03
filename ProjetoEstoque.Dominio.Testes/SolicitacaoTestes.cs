@@ -29,6 +29,22 @@ namespace ProjetoEstoque.Dominio.Testes
         }
 
         [Test]
+        public void Usuario_Nao_Deve_Ser_Vazio()
+        {
+            //ARRANGE
+            _solicitacao.Usuario = "";
+
+            //ACTION
+            Action resultado = () => _solicitacao.ValidaSolicitacao();
+
+            //ASSERT
+            resultado.Should()
+                .Throw<Exception>()
+                .WithMessage("O usuario da solicitação não deve ser vazio!");
+        }
+
+        
+        [Test]
         public void Status_Nao_Deve_Ser_Vazio()
         {
             //ARRANGE
@@ -41,6 +57,36 @@ namespace ProjetoEstoque.Dominio.Testes
             resultado.Should()
                 .Throw<Exception>()
                 .WithMessage("O status da solicitação não deve estar vazia!");
+        }
+
+        [Test]
+        public void Qtd1_Nao_Deve_Ser_Menor_Que_1()
+        {
+            //ARRANGE
+            _solicitacao.Qtd1 = 0;
+
+            //ACTION
+            Action resultado = () => _solicitacao.ValidaSolicitacao();
+
+            //ASSERT
+            resultado.Should()
+                .Throw<Exception>()
+                .WithMessage("A quantidade 1 da solicitação não deve ser menor que 1!");
+        }
+
+        [Test]
+        public void Item1_Nao_Deve_Ser_Vazio()
+        {
+            //ARRANGE
+            _solicitacao.Item1 = "";
+
+            //ACTION
+            Action resultado = () => _solicitacao.ValidaSolicitacao();
+
+            //ASSERT
+            resultado.Should()
+                .Throw<Exception>()
+                .WithMessage("O item 1 da solicitação não deve ser vazio!");
         }
 
         [Test]

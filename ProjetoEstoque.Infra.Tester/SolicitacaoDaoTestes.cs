@@ -14,7 +14,6 @@ namespace ProjetoEstoque.Infra.Testes
     public class SolicitacaoDaoTestes
     {
         private SolicitacaoDao _solicitacaoDao;
-        private UsuarioDao _usuarioDao;
 
         [SetUp]
         public void Inicializador()
@@ -45,6 +44,20 @@ namespace ProjetoEstoque.Infra.Testes
         }
 
         [Test]
+        public void Teste_Deve_Alterar_Status_Da_Solicitacao()
+        {
+            int idSolicitacaoEditado = 1;
+            string statusEditado = "SOCORRO";
+            Solicitacao solicitacaoEditado = _solicitacaoDao.BuscarPorId(idSolicitacaoEditado);
+
+            solicitacaoEditado.Status = statusEditado;
+            _solicitacaoDao.Editar(solicitacaoEditado);
+
+            Solicitacao solicitacaoBuscado = _solicitacaoDao.BuscarPorId(idSolicitacaoEditado);
+            Assert.AreEqual(statusEditado, solicitacaoBuscado.Status);
+        }
+
+        [Test]
 
         public void Teste_Deve_Adicionar_Solicitacao()
         {
@@ -71,22 +84,6 @@ namespace ProjetoEstoque.Infra.Testes
             //ASSERT
             Assert.True(resultado > idEsperado);
             Assert.AreEqual(idSolicitacaoAdicionado, resultado);
-        }
-
-
-        [Test]
-        public void Teste_Deve_Alterar_Status_Da_Solicitacao()
-        {
-            int idSolicitacaoEditado = 1; //ID DA SOLICITACAO QUE ESTA SENDO ALTERADO
-            string statusEditado = "SOCORRO"; //ALTERAÇÃO DO STATUS
-            Solicitacao solicitacaoEditado = _solicitacaoDao.BuscarPorId(idSolicitacaoEditado); //BUSCA DA SOLICITACAO A SER ALTERADO
-
-            //AÇÃO
-            solicitacaoEditado.Status = statusEditado;
-            _solicitacaoDao.Editar(solicitacaoEditado);
-
-            Solicitacao solicitacaoBuscado = _solicitacaoDao.BuscarPorId(idSolicitacaoEditado);
-            Assert.AreEqual(statusEditado, solicitacaoBuscado.Status);
         }
 
         [Test]

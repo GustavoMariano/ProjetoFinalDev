@@ -24,8 +24,8 @@ namespace ProjetoEstoque.Infra.Testes
 
             Item novoItem = new Item();
             novoItem = new Item();
-            novoItem.Nome = "Item 1";
-            novoItem.Descricao = "Desc 1";
+            novoItem.Nome = "Item SetUp";
+            novoItem.Descricao = "Desc SetUp";
 
             _itemDao.Adicionar(novoItem);
         }
@@ -34,8 +34,8 @@ namespace ProjetoEstoque.Infra.Testes
         public void Teste_Deve_Adicionar_Um_Item()
         {
             Item novoItem = new Item();
-            novoItem.Nome = "Item2";
-            novoItem.Descricao = "Desc2";
+            novoItem.Nome = "Item Teste";
+            novoItem.Descricao = "Desc Teste";
 
             int QuantidadeItemAdicionado = 2;
             int quantidadeValida = 0;
@@ -46,21 +46,42 @@ namespace ProjetoEstoque.Infra.Testes
             Assert.AreEqual(QuantidadeItemAdicionado, resultado);
         }
 
-        //[Test]
-        //public void Teste_Deve_Deletar_Um_Item()
-        //{
-        //    Item novoItem = new Item();
-        //    novoItem.Nome = "Item2";
-        //    novoItem.Descricao = "Desc2";
+        [Test]
+        public void Teste_Deve_Buscar_Todos_Os_Itens()
+        {
+            int quantidadeItens = 1;
 
-        //    int QuantidadeItemAMostrar = 1;
-        //    int quantidadeValida = 0;
+            var resultado = _itemDao.BuscarTodos();
 
-        //    var resultado = _itemDao.Deletar(novoItem);
+            Assert.AreEqual(quantidadeItens, resultado.Count);
+        }
 
-        //    Assert.True(resultado > quantidadeValida);
-        //    Assert.AreEqual(QuantidadeItemAMostrar, resultado);
-        //}
+        [Test]
+        public void Teste_Deve_Deletar_Um_Item_Por_Id()
+        {
+            int idItemDeletado = 1;
+            int quantidadeItens = 0;
+
+            _itemDao.Deletar(idItemDeletado);
+
+            var resultado = _itemDao.BuscarTodos();
+            Assert.AreEqual(quantidadeItens, resultado.Count);
+        }
+
+        [Test]
+        public void Teste_Deve_Editar_Um_Item_Por_Id()
+        {
+            int idClienteEditado = 1; 
+            string nomeEditado = "TESTE UPDATE";
+            Item itemEditado = _itemDao.BuscarPorId(idClienteEditado);
+
+            //AÇÃO
+            itemEditado.Nome = nomeEditado;
+            _itemDao.Editar(itemEditado);
+
+            Item itemBuscado = _itemDao.BuscarPorId(idClienteEditado);
+            Assert.AreEqual(nomeEditado, itemBuscado.Nome);
+        }
     }
 }
 

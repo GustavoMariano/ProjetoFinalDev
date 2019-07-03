@@ -47,7 +47,24 @@ namespace ProjetoEstoque.Dominio
             {
                 throw new Exception("O status da solicitação não deve estar vazia!");
             }
-            
+            else if (String.IsNullOrEmpty(Item1))
+            {
+                throw new Exception("O item 1 da solicitação não deve ser vazio!");
+            }
+            else if (Qtd1 < 1)
+            {
+                throw new Exception("A quantidade 1 da solicitação não deve ser menor que 1!");
+            }
+            else if (String.IsNullOrEmpty(Usuario))
+            {
+                throw new Exception("O usuario da solicitação não deve ser vazio!");
+            }
+            else if (Item1.Length == 0 && Item2.Length > 0)
+            {
+                throw new Exception("Adicione primeiro o item 1!");
+            }
+
+
         }
     }
 }

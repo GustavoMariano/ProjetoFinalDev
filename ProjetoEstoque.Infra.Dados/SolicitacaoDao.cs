@@ -28,7 +28,7 @@ namespace ProjetoEstoque.Infra.Dados
                 ,[qtd2]
                 ,[qtd3])
             VALUES
-                ({0}datacriacao
+                ({0}DataCriacao
                 ,{0}status
                 ,{0}dataFim
                 ,{0}usuario
@@ -77,6 +77,9 @@ namespace ProjetoEstoque.Infra.Dados
             Db.Update(_sqlEditar, BuscarParametros(solicitacao));
         }
 
+
+
+        #region métodos privados
         private Dictionary<string, object> BuscarParametros(Solicitacao solicitacao)
         {
             return new Dictionary<string, object>
@@ -96,12 +99,13 @@ namespace ProjetoEstoque.Infra.Dados
             };
         }
 
-        #region métodos privados
         private Solicitacao ConverterSolicitacao(IDataReader reader)
         {
             Solicitacao solicitacao = new Solicitacao();
-            solicitacao.Id = Convert.ToInt32(reader["Id"]);
-            solicitacao.Status = Convert.ToString(reader["Status"]);
+            solicitacao.Id = Convert.ToInt32(reader["id"]);
+            solicitacao.Status = Convert.ToString(reader["status"]);
+            solicitacao.DataCriacao = Convert.ToDateTime(reader["data_criacao"]);
+            solicitacao.DataFinalizacao = Convert.ToDateTime(reader["data_finalizacao"]);
 
 
             return solicitacao;

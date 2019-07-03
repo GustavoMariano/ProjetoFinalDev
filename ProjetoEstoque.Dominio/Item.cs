@@ -19,6 +19,10 @@ namespace ProjetoEstoque.Dominio
             {
                 throw new Exception("O nome não deve ser vazio!");
             }
+            else if (Nome.Length < 3)
+            {
+                throw new Exception("O nome do item não pode ter menos de 3 caracteres!");
+            }
             else if (Descricao.Length < 6)
             {
                 throw new Exception("A descrição deve ter mais de cinco caracteres!");

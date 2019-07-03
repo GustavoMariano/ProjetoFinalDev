@@ -39,6 +39,7 @@ namespace ProjetoEstoque.Infra.Dados
                 ,[login]
                 ,[senha]
                 ,[nivel]
+                ,[setor]
                 FROM [dbo].[tb_usuario]";
 
         private const string _sqlEditar =
@@ -48,6 +49,16 @@ namespace ProjetoEstoque.Infra.Dados
                 ,[senha] ={0}senha
                 ,[nivel] ={0}nivel
              WHERE [id] = {0}id";
+
+        private const string _sqlBuscaPorId =
+            @"SELECT [id]
+                ,[nome]
+                ,[login]
+                ,[senha]
+                ,[nivel]
+                ,[setor]
+                FROM [dbo].[tb_usuario] 
+                WHERE [id]={0}id";
 
         private const string _sqlDeletar =
             @"DELETE FROM [dbo].[tb_usuario] WHERE [id] = {0}id";
@@ -67,6 +78,13 @@ namespace ProjetoEstoque.Infra.Dados
         public IList<Usuario> BuscarTodos()
         {
             return Db.GetAll(_sqlBuscaTodos, ConverterUsuario);
+        }
+
+        public Usuario BuscarPorId(int id)
+        {
+            var parms = new Dictionary<string, object> { { "Id", id } };
+
+            return Db.Get(_sqlBuscaPorId, ConverterUsuario, parms);
         }
 
         public void Editar(Usuario usuario)
