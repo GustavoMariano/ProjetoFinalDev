@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjetoEstoque.Dominio;
 using ProjetoEstoque.Infra.Dados;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjetoEstoque.Apresentacao
 {
@@ -18,7 +20,6 @@ namespace ProjetoEstoque.Apresentacao
         {
             InitializeComponent();
             
-
         }
 
         private void TelaAdmin_Load(object sender, EventArgs e)
@@ -48,6 +49,13 @@ namespace ProjetoEstoque.Apresentacao
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TelaNovoItem frm = new TelaNovoItem();
+            frm.Show();
+            this.Visible = false;
         }
     }
 }

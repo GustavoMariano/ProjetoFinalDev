@@ -91,6 +91,12 @@
     <Compile Include="TelaNovaSolicitacao.Designer.cs">
       <DependentUpon>TelaNovaSolicitacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelaNovoItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaNovoItem.Designer.cs">
+      <DependentUpon>TelaNovoItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaNovoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelaNovaSolicitacao.resx">
       <DependentUpon>TelaNovaSolicitacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaNovoItem.resx">
+      <DependentUpon>TelaNovoItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaNovoUsuario.resx">
       <DependentUpon>TelaNovoUsuario.cs</DependentUpon>

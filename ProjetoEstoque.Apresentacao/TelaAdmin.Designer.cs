@@ -37,6 +37,13 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ITEM2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.QTD2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button3
@@ -67,12 +74,17 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader7,
+            this.ITEM2,
+            this.QTD2,
+            this.columnHeader8,
+            this.columnHeader9});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(12, 38);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(845, 531);
+            this.listView1.Size = new System.Drawing.Size(854, 164);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -105,14 +117,60 @@
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "ITENS";
-            this.columnHeader6.Width = 427;
+            this.columnHeader6.Text = "ITEM 1";
+            this.columnHeader6.Width = 80;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "QTD 1";
+            this.columnHeader7.Width = 45;
+            // 
+            // ITEM2
+            // 
+            this.ITEM2.Text = "ITEM 2";
+            this.ITEM2.Width = 80;
+            // 
+            // QTD2
+            // 
+            this.QTD2.Text = "QTD 2";
+            this.QTD2.Width = 45;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "ITEM 3";
+            this.columnHeader8.Width = 80;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "QTD 3";
+            this.columnHeader9.Width = 45;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(514, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 20);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "ADICIONAR ITEM";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(333, 216);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "ERA PRA CARREGAR TUDO xD";
             // 
             // TelaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 589);
+            this.ClientSize = new System.Drawing.Size(869, 235);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
@@ -120,6 +178,7 @@
             this.Text = "inicio";
             this.Load += new System.EventHandler(this.TelaAdmin_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -134,5 +193,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader ITEM2;
+        private System.Windows.Forms.ColumnHeader QTD2;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
     }
 }

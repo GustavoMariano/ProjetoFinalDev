@@ -35,9 +35,9 @@ namespace ProjetoEstoque.Infra.Testes
             novaSolicitacao.Item1 = "aa";
             novaSolicitacao.Item2 = "aa";
             novaSolicitacao.Item3 = "aa";
-            novaSolicitacao.Qtd1 = 3;
-            novaSolicitacao.Qtd2 = 1;
-            novaSolicitacao.Qtd3 = 6;
+            novaSolicitacao.Qtd1 = "3";
+            novaSolicitacao.Qtd2 = "1";
+            novaSolicitacao.Qtd3 = "6";
 
             //Adicionando a solicitacao no banco
             _solicitacaoDao.Solicitar(novaSolicitacao);
@@ -71,9 +71,9 @@ namespace ProjetoEstoque.Infra.Testes
             novaSolicitacao.Item1 = "aa";
             novaSolicitacao.Item2 = "aa";
             novaSolicitacao.Item3 = "aa";
-            novaSolicitacao.Qtd1 = 3;
-            novaSolicitacao.Qtd2 = 1;
-            novaSolicitacao.Qtd3 = 6;
+            novaSolicitacao.Qtd1 = "3";
+            novaSolicitacao.Qtd2 = "1";
+            novaSolicitacao.Qtd3 = "6";
 
             int idSolicitacaoAdicionado = 2;
             int idEsperado = 0;

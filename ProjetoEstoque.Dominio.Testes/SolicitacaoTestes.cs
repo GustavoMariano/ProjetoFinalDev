@@ -22,9 +22,9 @@ namespace ProjetoEstoque.Dominio.Testes
             _solicitacao.Item1 = "ITEM 1";
             _solicitacao.Item2 = "ITME 2";
             _solicitacao.Item3 = "Item 3";
-            _solicitacao.Qtd1 = 1;
-            _solicitacao.Qtd2 = 2;
-            _solicitacao.Qtd3 = 3;
+            _solicitacao.Qtd1 = "1";
+            _solicitacao.Qtd2 = "2";
+            _solicitacao.Qtd3 = "3";
             _solicitacao.Usuario = "Gustavo";
         }
 
@@ -57,21 +57,6 @@ namespace ProjetoEstoque.Dominio.Testes
             resultado.Should()
                 .Throw<Exception>()
                 .WithMessage("O status da solicitação não deve estar vazia!");
-        }
-
-        [Test]
-        public void Qtd1_Nao_Deve_Ser_Menor_Que_1()
-        {
-            //ARRANGE
-            _solicitacao.Qtd1 = 0;
-
-            //ACTION
-            Action resultado = () => _solicitacao.ValidaSolicitacao();
-
-            //ASSERT
-            resultado.Should()
-                .Throw<Exception>()
-                .WithMessage("A quantidade 1 da solicitação não deve ser menor que 1!");
         }
 
         [Test]

@@ -88,7 +88,7 @@ namespace ProjetoEstoque.Infra.Dados
         private Item ConverterItem(IDataReader reader)
         {
             Item item = new Item();
-            item.Id = Convert.ToInt32(reader["Id"]);
+            item.Id = Convert.ToInt32(reader["id"]);
             item.Nome = Convert.ToString(reader["Nome"]);
             item.Descricao = Convert.ToString(reader["Descricao"]);
 
